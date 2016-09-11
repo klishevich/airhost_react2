@@ -29,7 +29,7 @@ function homeReducer(state = initialState, action) {
       return state
         .set('username', action.name.replace(/@/gi, ''));
     case RECIEVE_BOOKINGS:
-      console.log('homeReducer', action.data)
+      // console.log('homeReducer', action.data)
       return state
         .set('bookings', action.data);
     default:

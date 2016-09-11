@@ -20,6 +20,7 @@ import {
 
 import {
   selectUsername,
+  selectBookings
 } from './selectors';
 
 import { changeUsername, getBookings } from './actions';
@@ -32,6 +33,7 @@ import H2 from 'components/H2';
 import List from 'components/List';
 import ListItem from 'components/ListItem';
 import LoadingIndicator from 'components/LoadingIndicator';
+import Bookings from 'components/Bookings';
 
 import styles from './styles.css';
 
@@ -78,8 +80,8 @@ export class HomePage extends React.Component {
     // If we're not loading, don't have an error and there are repos, show the repos
     } else if (this.props.repos !== false) {
       mainContent = (<List items={this.props.repos} component={RepoListItem} />);
-    }
-
+    }     
+    console.log('HomePage', this.props)
     return (
       <article>
         <Helmet
@@ -162,6 +164,7 @@ const mapStateToProps = createStructuredSelector({
   username: selectUsername(),
   loading: selectLoading(),
   error: selectError(),
+  bookings: selectBookings(),
 });
 
 // Wrap the component to inject dispatch and state into it

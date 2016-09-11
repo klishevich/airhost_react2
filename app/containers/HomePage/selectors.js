@@ -11,7 +11,13 @@ const selectUsername = () => createSelector(
   (homeState) => homeState.get('username')
 );
 
+const selectBookings = () => createSelector(
+  selectHome(),
+  (homeState) => homeState.get('bookings')
+);
+
 export {
   selectHome,
   selectUsername,
+  selectBookings
 };
