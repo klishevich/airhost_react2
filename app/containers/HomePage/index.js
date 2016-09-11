@@ -22,7 +22,7 @@ import {
   selectUsername,
 } from './selectors';
 
-import { changeUsername } from './actions';
+import { changeUsername, getBookings } from './actions';
 import { loadRepos } from '../App/actions';
 
 import { FormattedMessage } from 'react-intl';
@@ -43,6 +43,7 @@ export class HomePage extends React.Component {
     if (this.props.username && this.props.username.trim().length > 0) {
       this.props.onSubmitForm();
     }
+    this.props.getBookings();
   }
   /**
    * Changes the route
@@ -151,7 +152,7 @@ function mapDispatchToProps(dispatch) {
       if (evt !== undefined && evt.preventDefault) evt.preventDefault();
       dispatch(loadRepos());
     },
-
+    getBookings: () => dispatch(getBookings()),
     dispatch,
   };
 }

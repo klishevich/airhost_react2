@@ -10,3 +10,6 @@
  */
 
 export const CHANGE_USERNAME = 'boilerplate/Home/CHANGE_USERNAME';
+export const GET_BOOKINGS = 'GET_BOOKINGS';
+export const RECIEVE_BOOKINGS = 'RECIEVE_BOOKINGS';
+export const ERROR_BOOKINGS = 'ERROR_BOOKINGS';

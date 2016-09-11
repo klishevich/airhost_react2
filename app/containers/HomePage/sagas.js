@@ -6,6 +6,10 @@ import { take, call, put, select, fork, cancel } from 'redux-saga/effects';
 import { LOCATION_CHANGE } from 'react-router-redux';
 import { LOAD_REPOS } from 'containers/App/constants';
 import { reposLoaded, repoLoadingError } from 'containers/App/actions';
+import { takeEvery } from 'redux-saga'
+import {
+  RECIEVE_BOOKINGS, ERROR_BOOKINGS, GET_BOOKINGS 
+} from './constants';
 
 import request from 'utils/request';
 import { selectUsername } from 'containers/HomePage/selectors';
@@ -49,7 +53,27 @@ export function* githubData() {
   yield cancel(watcher);
 }
 
+export function* getBookings() {
+  try {
+    var data
+    yield fetch('https://airhosts.firebaseio.com/bookings.json').then(function(response) { 
+      return response.json()
+    }).then(function(j) {
+      data = j
+      // console.log('data', data)
+    });
+    yield put({type: RECIEVE_BOOKINGS, data})
+  } catch (error) {
+    yield put({type: ERROR_BOOKINGS, error})
+  }
+}
+
+export function* watchGetBookings() {
+  yield* takeEvery(GET_BOOKINGS, getBookings)
+}
+
 // Bootstrap sagas
 export default [
   githubData,
+  watchGetBookings
 ];

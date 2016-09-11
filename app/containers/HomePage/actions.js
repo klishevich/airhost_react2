@@ -16,7 +16,7 @@
  */
 
 import {
-  CHANGE_USERNAME,
+  CHANGE_USERNAME, GET_BOOKINGS
 } from './constants';
 
 /**
@@ -31,4 +31,10 @@ export function changeUsername(name) {
     type: CHANGE_USERNAME,
     name,
   };
+}
+
+export function getBookings() {
+  return {
+  	type: GET_BOOKINGS
+  }
 }
