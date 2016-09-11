@@ -8,7 +8,7 @@ import { LOAD_REPOS } from 'containers/App/constants';
 import { reposLoaded, repoLoadingError } from 'containers/App/actions';
 import { takeEvery } from 'redux-saga'
 import {
-  RECIEVE_BOOKINGS, ERROR_BOOKINGS, GET_BOOKINGS 
+  RECIEVE_BOOKINGS, ERROR_BOOKINGS, GET_BOOKINGS, RECIEVE_HOUSES, ERROR_HOUSES, GET_HOUSES
 } from './constants';
 
 import request from 'utils/request';
@@ -56,7 +56,7 @@ export function* githubData() {
 export function* getBookings() {
   try {
     var data
-    yield fetch('https://airhosts.firebaseio.com/bookings.json').then(function(response) { 
+    yield fetch('https://airhosts.firebaseio.com/bookings.json').then(function(response) {
       return response.json()
     }).then(function(j) {
       data = j
@@ -72,8 +72,27 @@ export function* watchGetBookings() {
   yield* takeEvery(GET_BOOKINGS, getBookings)
 }
 
+export function* getHouses() {
+  try {
+    var data
+    yield fetch('https://airhosts.firebaseio.com/houses.json').then(function(response) {
+      return response.json()
+    }).then(function(j) {
+      data = j
+    });
+    yield put({type: RECIEVE_HOUSES, data})
+  } catch (error) {
+    yield put({type: ERROR_HOUSES, error})
+  }
+}
+
+export function* watchGetHouses() {
+  yield* takeEvery(GET_HOUSES, getHouses)
+}
+
 // Bootstrap sagas
 export default [
   githubData,
-  watchGetBookings
+  watchGetBookings,
+  watchGetHouses
 ];

@@ -20,20 +20,23 @@ import {
 
 import {
   selectUsername,
-  selectBookings
+  selectBookings,
+  selectHouses
 } from './selectors';
 
-import { changeUsername, getBookings } from './actions';
+import { changeUsername, getBookings, getHouses } from './actions';
 import { loadRepos } from '../App/actions';
 
 import { FormattedMessage } from 'react-intl';
 import RepoListItem from 'containers/RepoListItem';
 import Button from 'components/Button';
+import H1 from 'components/H1';
 import H2 from 'components/H2';
 import List from 'components/List';
 import ListItem from 'components/ListItem';
 import LoadingIndicator from 'components/LoadingIndicator';
 import Bookings from 'components/Bookings';
+import Houses from 'components/Houses';
 
 import styles from './styles.css';
 
@@ -46,6 +49,7 @@ export class HomePage extends React.Component {
       this.props.onSubmitForm();
     }
     this.props.getBookings();
+    this.props.getHouses();
   }
   /**
    * Changes the route
@@ -88,42 +92,19 @@ export class HomePage extends React.Component {
           title="Home Page"
           meta={[
             { name: 'description', content: 'A React.js Boilerplate application homepage' },
-          ]}
-        />
+          ]}/>
         <div>
           <section className={`${styles.textSection} ${styles.centered}`}>
-            <H2>
-              <FormattedMessage {...messages.startProjectHeader} />
-            </H2>
-            <p>
-              <FormattedMessage {...messages.startProjectMessage} />
-            </p>
+            <H1>AIRHOST PROJECT</H1>
           </section>
-          <section className={styles.textSection}>
-            <H2>
-              <FormattedMessage {...messages.trymeHeader} />
-            </H2>
-            <form className={styles.usernameForm} onSubmit={this.props.onSubmitForm}>
-              <label htmlFor="username">
-                <FormattedMessage {...messages.trymeMessage} />
-                <span className={styles.atPrefix}>
-                  <FormattedMessage {...messages.trymeAtPrefix} />
-                </span>
-                <input
-                  id="username"
-                  className={styles.input}
-                  type="text"
-                  placeholder="mxstbr"
-                  value={this.props.username}
-                  onChange={this.props.onChangeUsername}
-                />
-              </label>
-            </form>
-            {mainContent}
+          <section className='houses'>
+            <H2>Houses List</H2>
+            <Houses houses={this.props.houses}/>
           </section>
-          <Button handleRoute={this.openFeaturesPage}>
-            <FormattedMessage {...messages.featuresButton} />
-          </Button>
+          <section className='bookings'>
+            <H2>Bookings List</H2>
+            <Bookings bookings={this.props.bookings}/>
+          </section>
         </div>
       </article>
     );
@@ -155,6 +136,7 @@ function mapDispatchToProps(dispatch) {
       dispatch(loadRepos());
     },
     getBookings: () => dispatch(getBookings()),
+    getHouses: () => dispatch(getHouses()),
     dispatch,
   };
 }
@@ -165,6 +147,7 @@ const mapStateToProps = createStructuredSelector({
   loading: selectLoading(),
   error: selectError(),
   bookings: selectBookings(),
+  houses: selectHouses(),
 });
 
 // Wrap the component to inject dispatch and state into it

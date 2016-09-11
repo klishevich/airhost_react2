@@ -12,7 +12,8 @@
 
 import {
   CHANGE_USERNAME,
-  RECIEVE_BOOKINGS
+  RECIEVE_BOOKINGS,
+  RECIEVE_HOUSES
 } from './constants';
 import { fromJS } from 'immutable';
 
@@ -29,9 +30,12 @@ function homeReducer(state = initialState, action) {
       return state
         .set('username', action.name.replace(/@/gi, ''));
     case RECIEVE_BOOKINGS:
-      // console.log('homeReducer', action.data)
+      // console.log('homeReducer', actbion.data)
       return state
         .set('bookings', action.data);
+    case RECIEVE_HOUSES:
+      return state
+        .set('houses', action.data);
     default:
       return state;
   }

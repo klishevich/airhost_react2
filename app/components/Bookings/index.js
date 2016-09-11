@@ -2,7 +2,7 @@ import React, { Component, PropTypes } from 'react'
 
 // import styles from './styles.css'
 
-// import { getBookings } from '../../actions/bookingActions'
+import Booking from './Booking';
 
 export default class Bookings extends Component {
   constructor(props) {
@@ -10,11 +10,15 @@ export default class Bookings extends Component {
   }
 
   render() {
-  	const { bookings } = this.props
+    const bookings = this.props.bookings || [];
   	console.log('Bookings component', this.props)
     return (
       <div>
-        <div>Bookings component</div>
+        <div>
+        { bookings.map((item) => (
+            <Booking key={ item.id } booking={ item } />
+          )) }
+      </div>
       </div>
     );
   }

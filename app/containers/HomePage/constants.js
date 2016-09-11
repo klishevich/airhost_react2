@@ -13,3 +13,6 @@ export const CHANGE_USERNAME = 'boilerplate/Home/CHANGE_USERNAME';
 export const GET_BOOKINGS = 'GET_BOOKINGS';
 export const RECIEVE_BOOKINGS = 'RECIEVE_BOOKINGS';
 export const ERROR_BOOKINGS = 'ERROR_BOOKINGS';
+export const GET_HOUSES = 'GET_HOUSES';
+export const RECIEVE_HOUSES = 'RECIEVE_HOUSES';
+export const ERROR_HOUSES = 'ERROR_HOUSES';
