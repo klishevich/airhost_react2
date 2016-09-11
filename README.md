@@ -3,8 +3,8 @@
 
 # Houses List Page
 
-[houses_list.png](https://raw.githubusercontent.com/klishevich/airhost_react2/master/houses_list.png)
+<img src="https://raw.githubusercontent.com/klishevich/airhost_react2/master/houses_list.png" alt="houses_list.png" align="center" />
 
 # House Details Page
 
-[house_details.png](https://raw.githubusercontent.com/klishevich/airhost_react2/master/house_details.png)
+<img src="https://raw.githubusercontent.com/klishevich/airhost_react2/master/house_details.png" alt="house_details.png" align="center" />
