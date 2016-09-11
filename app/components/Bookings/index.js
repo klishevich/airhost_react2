@@ -18,7 +18,7 @@ export default class Bookings extends Component {
         { bookings.map((item) => (
             <Booking key={ item.id } booking={ item } />
           )) }
-      </div>
+        </div>
       </div>
     );
   }

@@ -101,10 +101,6 @@ export class HomePage extends React.Component {
             <H2>Houses List</H2>
             <Houses houses={this.props.houses}/>
           </section>
-          <section className='bookings'>
-            <H2>Bookings List</H2>
-            <Bookings bookings={this.props.bookings}/>
-          </section>
         </div>
       </article>
     );
