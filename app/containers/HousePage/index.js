@@ -17,6 +17,7 @@ import H2 from 'components/H2';
 import HouseDetails from 'components/Houses/HouseDetails';
 import { getBookings, getHouses } from 'containers/HomePage/actions';
 import Bookings from 'components/Bookings';
+import PageHeader from 'components/PageHeader';
 
 import styles from './styles.css';
 
@@ -75,6 +76,7 @@ export class HousePage extends React.Component {
           meta={[
             { name: 'description', content: 'House Details Page' },
           ]}/>
+        <PageHeader title='House - Dashboard' subtitle='House > User pages > Profile cover'/>
         <H1>
           House
         </H1>

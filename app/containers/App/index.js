@@ -16,6 +16,8 @@ import Img from 'components/Img';
 import Footer from 'components/Footer';
 import Banner from './banner-metal.jpg';
 import A from 'components/A';
+import NavbarMain from 'components/NavbarMain';
+import NavbarSecond from 'components/NavbarSecond';
 
 import styles from './styles.css';
 
@@ -27,11 +29,9 @@ function App(props) {
         defaultTitle="React.js Boilerplate"
         meta={[
           { name: 'description', content: 'A React.js Boilerplate application' },
-        ]}
-      />
-      <A className={styles.logoWrapper} href="https://twitter.com/mxstbr">
-        <Img className={styles.logo} src={Banner} alt="react-boilerplate - Logo" />
-      </A>
+        ]}/>
+      <NavbarMain/>
+      <NavbarSecond/>
       {React.Children.toArray(props.children)}
       <Footer />
     </div>

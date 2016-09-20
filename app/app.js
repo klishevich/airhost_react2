@@ -86,8 +86,7 @@ const render = (translatedMessages) => {
             // Scroll to top when going to a new page, imitating default browser
             // behaviour
             applyRouterMiddleware(useScroll())
-          }
-        />
+          }/>
       </LanguageProvider>
     </Provider>,
     document.getElementById('app')
