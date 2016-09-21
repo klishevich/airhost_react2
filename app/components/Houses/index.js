@@ -1,17 +1,15 @@
 import React, { Component, PropTypes } from 'react'
 
-// import styles from './styles.css'
-
-import House from './House';
+import House from './House'
 
 export default class Houses extends Component {
   constructor(props) {
-    super(props);
+    super(props)
   }
 
   render() {
-    const houses = this.props.houses || []
     console.log('Houses component', this.props)
+    const { houses } = this.props
     return (
       <div>
         <div>
@@ -20,11 +18,11 @@ export default class Houses extends Component {
           )) }
       </div>
       </div>
-    );
+    )
   }
 }
 
 Houses.propTypes = {
-  houses: PropTypes.array
-};
+  houses: PropTypes.array.isRequired
+}
 

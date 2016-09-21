@@ -1153,7 +1153,7 @@ a.badge,
 }
 @media (min-width: 769px) {
   .content-wrapper {
-    display: table-cell;
+    /*display: table-cell;*/
     vertical-align: top;
   }
 }

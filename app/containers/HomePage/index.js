@@ -1,61 +1,56 @@
-/*
- * HomePage
- *
- * This is the first thing users see of our App, at the '/' route
- */
+import React from 'react'
+import { connect } from 'react-redux'
+import { push } from 'react-router-redux'
+import Helmet from 'react-helmet'
 
-import React from 'react';
-import { connect } from 'react-redux';
-import { push } from 'react-router-redux';
-import Helmet from 'react-helmet';
-
-import messages from './messages';
-import { createStructuredSelector } from 'reselect';
+import messages from './messages'
+import { createStructuredSelector } from 'reselect'
 
 import {
   selectRepos,
   selectLoading,
   selectError,
-} from 'containers/App/selectors';
+} from 'containers/App/selectors'
 
 import {
   selectUsername,
   selectBookings,
   selectHouses
-} from './selectors';
+} from './selectors'
 
-import { changeUsername, getBookings, getHouses } from './actions';
-import { loadRepos } from '../App/actions';
+import { changeUsername, getBookings, getHouses } from './actions'
+import { loadRepos } from '../App/actions'
 
-import { FormattedMessage } from 'react-intl';
-import RepoListItem from 'containers/RepoListItem';
-import Button from 'components/Button';
-import H1 from 'components/H1';
-import H2 from 'components/H2';
-import List from 'components/List';
-import ListItem from 'components/ListItem';
-import LoadingIndicator from 'components/LoadingIndicator';
-import Bookings from 'components/Bookings';
-import Houses from 'components/Houses';
-import PageHeader from 'components/PageHeader';
+import { FormattedMessage } from 'react-intl'
+import RepoListItem from 'containers/RepoListItem'
+import Button from 'components/Button'
+import H1 from 'components/H1'
+import H2 from 'components/H2'
+import List from 'components/List'
+import ListItem from 'components/ListItem'
+import LoadingIndicator from 'components/LoadingIndicator'
+import Bookings from 'components/Bookings'
+import Houses from 'components/Houses'
+import PageHeader from 'components/PageHeader'
 
-import styles from './styles.css';
+import styles from './styles.css'
 
 export class HomePage extends React.Component {
   componentDidMount() {
-    this.props.getBookings();
-    this.props.getHouses();
+    this.props.getBookings()
+    this.props.getHouses()
   }
   openRoute = (route) => {
-    this.props.changeRoute(route);
+    this.props.changeRoute(route)
   };
 
   openFeaturesPage = () => {
-    this.openRoute('/features');
+    this.openRoute('/features')
   };
 
   render() {    
-    console.log('HomePage', this.props)
+    // console.log('HomePage', this.props)
+    const houses = this.props.houses || [];
     return (
       <article>
         <Helmet
@@ -65,16 +60,14 @@ export class HomePage extends React.Component {
           ]}/>
         <div>
           <PageHeader title='Home - Dashboard' subtitle='Good morning, Obatake Takashi!'/>
-          <section className={`${styles.textSection} ${styles.centered}`}>
-            <H1>AIRHOST PROJECT</H1>
-          </section>
-          <section className='houses'>
-            <H2>Houses List</H2>
-            <Houses houses={this.props.houses}/>
-          </section>
+          <div className="page-container" style={ {minHeight:'306px'} }>
+            <div className="page-content">
+              <Houses houses={ houses }/>
+            </div>
+          </div>
         </div>
       </article>
-    );
+    )
   }
 }
 
@@ -85,7 +78,7 @@ HomePage.propTypes = {
     React.PropTypes.object,
     React.PropTypes.bool,
   ]),
-};
+}
 
 function mapDispatchToProps(dispatch) {
   return {
@@ -93,7 +86,7 @@ function mapDispatchToProps(dispatch) {
     getBookings: () => dispatch(getBookings()),
     getHouses: () => dispatch(getHouses()),
     dispatch,
-  };
+  }
 }
 
 const mapStateToProps = createStructuredSelector({
@@ -101,6 +94,6 @@ const mapStateToProps = createStructuredSelector({
   error: selectError(),
   bookings: selectBookings(),
   houses: selectHouses(),
-});
+})
 
-export default connect(mapStateToProps, mapDispatchToProps)(HomePage);
+export default connect(mapStateToProps, mapDispatchToProps)(HomePage)
