@@ -51,6 +51,7 @@ export class HomePage extends React.Component {
   render() {    
     // console.log('HomePage', this.props)
     const houses = this.props.houses || [];
+    const bookings = this.props.bookings || [];
     return (
       <article>
         <Helmet
@@ -62,7 +63,7 @@ export class HomePage extends React.Component {
           <PageHeader title='Home - Dashboard' subtitle='Good morning, Obatake Takashi!'/>
           <div className="page-container" style={ {minHeight:'306px'} }>
             <div className="page-content">
-              <Houses houses={ houses }/>
+              <Houses houses={ houses } bookings={ bookings } />
             </div>
           </div>
         </div>

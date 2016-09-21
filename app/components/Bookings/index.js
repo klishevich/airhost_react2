@@ -11,15 +11,13 @@ export default class Bookings extends Component {
 
   render() {
     const bookings = this.props.bookings || [];
-  	console.log('Bookings component', this.props)
+  	// console.log('Bookings component', this.props)
     return (
-      <div>
-        <div>
+      <tbody>
         { bookings.map((item) => (
-            <Booking key={ item.id } booking={ item } />
-          )) }
-        </div>
-      </div>
+          <Booking key={ item.id } booking={ item } />
+        )) }
+      </tbody>
     );
   }
 }

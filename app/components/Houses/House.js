@@ -1,8 +1,10 @@
 import React, { Component, PropTypes } from 'react'
+import Bookings from 'components/Bookings'
 
 export default class House extends Component {
   render() {
-    const { house } = this.props
+    const { house, houseBookings } = this.props
+    console.log('House', this.props)
     const ref = '/houses/' + house.id
     return (
       <div className="content-wrapper">
@@ -10,7 +12,7 @@ export default class House extends Component {
           <div className="col-lg-8">
             <div className="panel panel-flat border-top-primary">
               <div className="panel-heading">
-                <h6 className="panel-title">AH 1 Bedroom Apartment in Kyoto No 8</h6>
+                <h6 className="panel-title">{ house.name }</h6>
                 <div className="heading-elements">
                   <form className="heading-form" action="#">
                     <div className="form-group">
@@ -41,8 +43,8 @@ export default class House extends Component {
                 <div className="row">
                   <div className="col-sm-6 col-xs-12">
                     <div className="thumbnail">
-                      <a href="#" className="thumb">
-                        <img src="https://a2.muscache.com/im/pictures/20e36af2-c3cb-49f9-883a-ce1cebc79b5c.jpg?aki_policy=small" className="img-circle" alt=""/>
+                      <a href={ ref } className="thumb">
+                        <img src={ house.photo } className="img-circle" alt=""/>
                       </a>
                     </div>
                   </div>    
@@ -79,119 +81,12 @@ export default class House extends Component {
                 <table className="table text-nowrap">
                   <thead>
                     <tr>
-                      <th>House</th>
-                      <th>Name</th>
-                      <th>Date</th>
+                      <th><b>Status</b></th>
+                      <th><b>Date Start</b></th>
+                      <th><b>Name</b></th>
                     </tr>
                   </thead>
-                  <tbody>
-                    <tr>
-                      <td>
-                        <div className="media-left media-middle">
-                          <img src="https://a2.muscache.com/im/pictures/20e36af2-c3cb-49f9-883a-ce1cebc79b5c.jpg?aki_policy=small" className="img-circle img-xs" alt=""/>
-                        </div>
-
-                        <div className="media-body">
-                          <div className="media-heading">
-                            <a href="#" className="letter-icon-title">Kyoto No 8</a>
-                          </div>
-
-                          <div className="text-muted text-size-small">Agoda</div>
-                        </div>
-                      </td>
-                      <td>
-                        <span className="text-muted text-size-small">Ziwei Zhou</span>
-                      </td>
-                      <td>
-                        <h6 className="text-semibold no-margin">2016-02-28</h6>
-                      </td>
-                    </tr>
-
-                    <tr>
-                      <td>
-                        <div className="media-left media-middle">
-                          <img src="https://a2.muscache.com/im/pictures/20e36af2-c3cb-49f9-883a-ce1cebc79b5c.jpg?aki_policy=small" className="img-circle img-xs" alt=""/>
-                        </div>
-
-                        <div className="media-body">
-                          <div className="media-heading">
-                            <a href="#" className="letter-icon-title">Kyoto No 8</a>
-                          </div>
-
-                          <div className="text-muted text-size-small">自在客</div>
-                        </div>
-                      </td>
-                      <td>
-                        <span className="text-muted text-size-small">Meryl Zhou</span>
-                      </td>
-                      <td>
-                        <h6 className="text-semibold no-margin">2016-03-1</h6>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <div className="media-left media-middle">
-                          <img src="https://a2.muscache.com/im/pictures/20e36af2-c3cb-49f9-883a-ce1cebc79b5c.jpg?aki_policy=small" className="img-circle img-xs" alt=""/>
-                        </div>
-
-                        <div className="media-body">
-                          <div className="media-heading">
-                            <a href="#" className="letter-icon-title">Kyoto No 8</a>
-                          </div>
-
-                          <div className="text-muted text-size-small">Airbnb</div>
-                        </div>
-                      </td>
-                      <td>
-                        <span className="text-muted text-size-small">Kenichi Izawa</span>
-                      </td>
-                      <td>
-                        <h6 className="text-semibold no-margin">2016-03-5</h6>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <div className="media-left media-middle">
-                          <img src="https://a2.muscache.com/im/pictures/20e36af2-c3cb-49f9-883a-ce1cebc79b5c.jpg?aki_policy=small" className="img-circle img-xs" alt=""/>
-                        </div>
-
-                        <div className="media-body">
-                          <div className="media-heading">
-                            <a href="#" className="letter-icon-title">Kyoto No 2</a>
-                          </div>
-
-                          <div className="text-muted text-size-small">Agoda</div>
-                        </div>
-                      </td>
-                      <td>
-                        <span className="text-muted text-size-small">Takashi Obatake</span>
-                      </td>
-                      <td>
-                        <h6 className="text-semibold no-margin">2016-03-10</h6>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <div className="media-left media-middle">
-                          <img src="https://a2.muscache.com/im/pictures/20e36af2-c3cb-49f9-883a-ce1cebc79b5c.jpg?aki_policy=small" className="img-circle img-xs" alt=""/>
-                        </div>
-
-                        <div className="media-body">
-                          <div className="media-heading">
-                            <a href="#" className="letter-icon-title">Kyoto No 8</a>
-                          </div>
-
-                          <div className="text-muted text-size-small">Airbnb</div>
-                        </div>
-                      </td>
-                      <td>
-                        <span className="text-muted text-size-small">Audrey Pang</span>
-                      </td>
-                      <td>
-                        <h6 className="text-semibold no-margin">2016-03-14</h6>
-                      </td>
-                    </tr>
-                  </tbody>
+                  <Bookings bookings={ houseBookings }/>
                 </table>
               </div>
             </div>
@@ -203,5 +98,6 @@ export default class House extends Component {
 }
 
 House.propTypes = {
-  house: PropTypes.object.isRequired
+  house: PropTypes.object.isRequired,
+  houseBookings: PropTypes.array.isRequired
 }
