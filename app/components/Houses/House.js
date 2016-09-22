@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from 'react'
 import Bookings from 'components/Bookings'
+import AvailabilitySvg from 'components/AvailabilitySvg'
 
 export default class House extends Component {
   render() {
@@ -47,9 +48,15 @@ export default class House extends Component {
                         <img src={ house.photo } className="img-circle" alt=""/>
                       </a>
                     </div>
-                  </div>    
-                  <div className="col-sm-6 col-xs-12 text-center">
-                    <img src="/assets/images/svg_graph.png" className="img-responsive" alt=""/>
+                  </div>
+                  <div className="col-sm-2 col-xs-4 text-center">
+                    <AvailabilitySvg persent={75}/>
+                  </div>
+                  <div className="col-sm-2 col-xs-4 text-center">
+                    <AvailabilitySvg persent={50}/>
+                  </div>
+                  <div className="col-sm-2 col-xs-4 text-center">
+                    <AvailabilitySvg persent={25}/>
                   </div>
                 </div>
               </div>
