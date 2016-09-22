@@ -35,8 +35,8 @@ export default class NavbarMain extends Component {
 
           <li className="dropdown dropdown-user">
             <a className="dropdown-toggle legitRipple" data-toggle="dropdown" aria-expanded="false">
-              <img src="/assets/images/placeholder.jpg" alt=""/>
-              <span>Victoria</span>
+              <img src="https://secure.gravatar.com/avatar/ad4a1f3a72da67c5a6b4141df6588836?s=128" alt=""/>
+              <span>Ziwei</span>
               <i className="caret"></i>
             </a>
 

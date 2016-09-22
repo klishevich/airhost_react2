@@ -1233,12 +1233,12 @@ a.badge,
 *  Latest update: Mar 10, 2016
 *
 * ---------------------------------------------------------------------------- */
-.footer {
+/*.footer {
   position: absolute;
-  left: 20px;
-  right: 20px;
-  bottom: 30px;
-}
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 30px;
+}*/
 .footer:not(.navbar-fixed-bottom) {
   z-index: 1000;
 }

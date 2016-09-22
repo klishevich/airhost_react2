@@ -18,14 +18,7 @@ function Footer() {
         <LocaleToggle />
       </section>
       <section>
-        <p>
-          <FormattedMessage
-            {...messages.authorMessage}
-            values={{
-              author: <A href="https://twitter.com/mxstbr">Max Stoiber</A>,
-            }}
-          />
-        </p>
+        <a href="#">Limitless Web App Kit</a> by <a href="http://themeforest.net/user/Kopyov" target="_blank">Eugene Kopyov</a>
       </section>
     </footer>
   );

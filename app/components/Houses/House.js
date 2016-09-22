@@ -48,19 +48,9 @@ export default class House extends Component {
                       </a>
                     </div>
                   </div>    
-                  <div className="col-sm-2 col-xs-4 text-center">
-                    <div className="content-group-sm svg-center position-relative" id="seven-days-chart">
-                    </div>
+                  <div className="col-sm-6 col-xs-12 text-center">
+                    <img src="/assets/images/svg_graph.png" className="img-responsive" alt=""/>
                   </div>
-                  <div className="col-sm-2 col-xs-4 text-center">
-                    <div className="content-group-sm svg-center position-relative" id="fifteen-days-chart">
-                    </div>
-                  </div>
-                  <div className="col-sm-2 col-xs-4 text-center">
-                    <div className="content-group-sm svg-center position-relative" id="thirty-days-chart">
-                    </div>
-                  </div>
-
                 </div>
               </div>
             </div>
