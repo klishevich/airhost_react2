@@ -40,7 +40,7 @@ export class HousePage extends React.Component {
     console.log('HousePage', this.props)
     const house_id = this.props.params ? this.props.params.id : -1
     const house = getHouse(house_id, this.props.houses)
-    const houseBookings = getHouseBookings(house_id, this.props.bookings)
+    // const houseBookings = getHouseBookings(house_id, this.props.bookings)
 
     return (
       <div>
@@ -50,19 +50,7 @@ export class HousePage extends React.Component {
             { name: 'description', content: 'House Details Page' },
           ]}/>
         <PageHeader title='House - Dashboard' subtitle='House > User pages > Profile cover'/>
-        <H1>
-          House
-        </H1>
-        <H2>House Details</H2>
         <HouseDetails house={house}/>
-        <Button handleRoute={this.openHomePage}>
-          Back to Houses List
-        </Button>
-        <H2>House Bookings</H2>
-        <Bookings bookings={houseBookings}/>
-        <Button handleRoute={this.openHomePage}>
-          Back to Houses List
-        </Button>
       </div>
     )
   }
