@@ -63,7 +63,16 @@ export class HomePage extends React.Component {
           <PageHeader title='Home - Dashboard' subtitle='Good morning, Obatake Takashi!'/>
           <div className="page-container" style={ {minHeight:'306px'} }>
             <div className="page-content">
-              <Houses houses={ houses } bookings={ bookings } />
+              <div className="content-wrapper">
+                <div className='row'>
+                  <div className="col-lg-8">
+                    <Houses houses={ houses } />
+                  </div>
+                  <div className="col-lg-4">
+                    <Bookings bookings={ bookings }/>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>

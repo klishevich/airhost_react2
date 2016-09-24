@@ -3,12 +3,13 @@ import React, { Component, PropTypes } from 'react'
 export default class Booking extends Component {
   render() {
     const { booking } = this.props
+    const house_ref = '/houses/' + booking.house_id 
     return (
       <tr>
         <td>
           <div className="media-body">
             <div className="media-heading">
-              <a href="#" className="letter-icon-title">{ booking.status }</a>
+              <a href={house_ref} className="letter-icon-title">{ booking.house }</a>
             </div>
           </div>
         </td>
