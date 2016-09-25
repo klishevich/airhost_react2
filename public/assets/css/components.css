@@ -18554,7 +18554,7 @@ thead .htCollapseButton:after {
   top: 0;
   left: 50%;
   margin-left: -2px;
-  background-color: #ccc;
+  /*background-color: #ccc;*/
   height: 4px;
   width: 4px;
   border-radius: 50%;

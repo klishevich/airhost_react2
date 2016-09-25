@@ -1,14 +1,18 @@
 import React, { Component, PropTypes } from 'react'
+import TimelineDate from 'components/Timeline/TimelineDate'
+import TimelineRow from 'components/Timeline/TimelineRow'
 
 export default class HouseDetails extends Component {
   render() {
+    console.log('HouseDetails', this.props)
     const { house } = this.props
+    const bg_img = `url(${house.photo})`
     return (
       <div className="page-container" style={{minHeight:'299px'}}>
         <div className="page-content">
           <div className="content-wrapper">
             <div className="profile-cover">
-              <div className="profile-cover-img" style={{backgroundImage: 'url(https://a2.muscache.com/im/pictures/20e36af2-c3cb-49f9-883a-ce1cebc79b5c.jpg?aki_policy=xx_large)'}}></div>
+              <div className="profile-cover-img" style={{backgroundImage: bg_img}}></div>
               <div className="media">
                 <div className="media-left">
                   <a href="#" className="profile-thumb">
@@ -16,9 +20,8 @@ export default class HouseDetails extends Component {
                   </a>
                 </div>
                 <div className="media-body">
-                    <h1>Cozy Kyoto, 2m to Sta WiFi#ZK3 <small className="display-block">Takayo</small></h1>
+                    <h1>{house.name} <small className="display-block">Takayo</small></h1>
                 </div>
-
                 <div className="media-right media-middle">
                   <ul className="list-inline list-inline-condensed no-margin-bottom text-nowrap">
                     <li><a href="#" className="btn btn-default legitRipple"><i className="icon-file-stats position-left"></i> Statistics</a></li>
@@ -45,147 +48,36 @@ export default class HouseDetails extends Component {
                 <div className="tabbable">
                   <div className="tab-content">
                     <div className="tab-pane fade in active" id="activity">
-                      <div className="timeline timeline-left content-group">
+                      <div className="timeline-left content-group">
                         <div className="timeline-container">
-                          <div className="timeline-date text-muted">
-                            <i className="icon-history position-left"></i> <span className="text-semibold">Once Booking is made</span>
-                          </div>
-                          <div className="timeline-row">
-                            <div className="timeline-icon">
-                              <div className="bg-primary-400">
-                                <i className="icon-stack-text"></i>
-                              </div>
-                            </div>
-                            <div className="panel panel-flat timeline-content">
-                              <div className="panel-heading">
-                                <h6 className="panel-title"></h6>
-                                <div className="heading-elements">
-                                  <form className="heading-form" action="#">
-                                    <div className="form-group">
-                                      <label className="checkbox-inline checkbox-switchery checkbox-right switchery-xs">
-                                        <input type="checkbox" className="switch" checked="checked" data-switchery="true" style={{display: 'none'}}/>
-                                        <span className="switchery switchery-default" style={{backgroundColor: 'rgb(76, 175, 80)', borderColor: 'rgb(76, 175, 80)', boxShadow: 'rgb(76, 175, 80) 0px 0px 0px 8px inset', transition: 'border 0.4s, box-shadow 0.4s, background-color 1.2s'}}>
-                                          <small style={{left: '14px', backgroundColor: 'rgb(255, 255, 255)', transition: 'background-color 0.4s, left 0.2s'}}></small>
-                                        </span>
-                                        Enable:
-                                      </label>
-                                    </div>
-                                  </form>
-                                </div>
-                              <a className="heading-elements-toggle"><i className="icon-more"></i></a></div>
-                              <div className="panel-body">
-                                <div className="form-group">
-                                  <label className="control-label col-lg-2">Welcome Message</label>
-                                  <div className="col-lg-10">
-                                    <textarea rows="5" cols="5" className="form-control" placeholder="Welcome Message"></textarea>
-                                    <span className="help-block">Message send to user when the booking is first made</span>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                          <div className="timeline-date text-muted">
-                            <i className="icon-history position-left"></i> <span className="text-semibold">6:00PM</span>, One day before checkin
-                          </div>
-                          <div className="timeline-row">
-                            <div className="timeline-icon">
-                              <div className="bg-teal-400">
-                                <i className="icon-airplane2"></i>
-                              </div>
-                            </div>
-                            <div className="panel panel-flat timeline-content">
-                              <div className="panel-heading">
-                                <h6 className="panel-title">Checkin Reminder</h6>
-                                <div className="heading-elements">
-                                  <form className="heading-form" action="#">
-                                    <div className="form-group">
-                                      <label className="checkbox-inline checkbox-switchery checkbox-right switchery-xs">
-                                        <input type="checkbox" className="switch" checked="checked" data-switchery="true" style={{display: 'none'}}/><span className="switchery switchery-default" style={{backgroundColor: 'rgb(76, 175, 80)', borderColor: 'rgb(76, 175, 80)', boxShadow: 'rgb(76, 175, 80) 0px 0px 0px 8px inset', transition: 'border 0.4s, box-shadow 0.4s, background-color 1.2s'}}><small style={{left: '14px', backgroundColor: 'rgb(255, 255, 255)', transition: 'background-color 0.4s, left 0.2s'}}></small></span>
-                                        Enable:
-                                      </label>
-                                    </div>
-                                  </form>
-                                </div>
-                              <a className="heading-elements-toggle"><i className="icon-more"></i></a></div>
-                              <div className="panel-body">
-                                <div className="form-group">
-                                  <label className="control-label col-lg-2"></label>
-                                  <div className="col-lg-10">
-                                    <textarea rows="5" cols="5" className="form-control" placeholder="Checkin Reminder"></textarea>
-                                    <span className="help-block">Message sent one day before checkin</span>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                          <div className="timeline-date text-muted">
-                            <i className="icon-history position-left"></i> <span className="text-semibold">6:00PM</span>, Same Checkin Date
-                          </div>
-                          <div className="timeline-row">
-                            <div className="timeline-icon">
-                              <div className="bg-info-400">
-                                <i className="icon-airplane4"></i>
-                              </div>
-                            </div>
-                            <div className="panel panel-flat timeline-content">
-                              <div className="panel-heading">
-                                <h6 className="panel-title">Arriving Message</h6>
-                                <div className="heading-elements">
-                                  <form className="heading-form" action="#">
-                                    <div className="form-group">
-                                      <label className="checkbox-inline checkbox-switchery checkbox-right switchery-xs">
-                                        <input type="checkbox" className="switch" checked="checked" data-switchery="true" style={{ display: 'none'}}/><span className="switchery switchery-default" style={{backgroundColor: 'rgb(76, 175, 80)', borderColor: 'rgb(76, 175, 80)', boxShadow: 'rgb(76, 175, 80) 0px 0px 0px 8px inset', transition: 'border 0.4s, box-shadow 0.4s, background-color 1.2s'}}><small style={{left: '14px', backgroundColor: 'rgb(255, 255, 255)', transition: 'background-color 0.4s, left 0.2s'}}></small></span>
-                                        Enable:
-                                      </label>
-                                    </div>
-                                  </form>
-                                </div>
-                              <a className="heading-elements-toggle"><i className="icon-more"></i></a></div>
-                              <div className="panel-body">
-                                <div className="form-group">
-                                  <label className="control-label col-lg-2"></label>
-                                  <div className="col-lg-10">
-                                    <textarea rows="5" cols="5" className="form-control" placeholder="Welcome Message"></textarea>
-                                    <span className="help-block">Message sent to make sure guest arrived safely</span>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                          <div className="timeline-date text-muted">
-                            <i className="icon-history position-left"></i> <span className="text-semibold">12:00AM</span>, One day before checkout
-                          </div>
-                          <div className="timeline-row">
-                            <div className="timeline-icon">
-                              <div className="bg-warning-400">
-                                <i className="icon-airplane3"></i>
-                              </div>
-                            </div>
-                            <div className="panel panel-flat timeline-content">
-                              <div className="panel-heading">
-                                <h6 className="panel-title">Checkout Message</h6>
-                                <div className="heading-elements">
-                                  <form className="heading-form" action="#">
-                                    <div className="form-group">
-                                      <label className="checkbox-inline checkbox-switchery checkbox-right switchery-xs">
-                                        <input type="checkbox" className="switch" checked="checked" data-switchery="true" style={{display: 'none'}}/><span className="switchery switchery-default" style={{backgroundColor: 'rgb(76, 175, 80)', borderColor: 'rgb(76, 175, 80)', boxShadow: 'rgb(76, 175, 80) 0px 0px 0px 8px inset', transition: 'border 0.4s, box-shadow 0.4s, background-color 1.2s'}}><small style={{left: '14px', backgroundColor: 'rgb(255, 255, 255)', transition: 'background-color 0.4s, left 0.2s'}}></small></span>
-                                        Enable:
-                                      </label>
-                                    </div>
-                                  </form>
-                                </div>
-                              <a className="heading-elements-toggle"><i className="icon-more"></i></a></div>
-                              <div className="panel-body">
-                                <div className="form-group">
-                                  <label className="control-label col-lg-2"></label>
-                                  <div className="col-lg-10">
-                                    <textarea rows="5" cols="5" className="form-control" placeholder="Welcome Message"></textarea>
-                                    <span className="help-block">Message sent to remind guest on checkout time</span>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
+                          <TimelineDate dateText='Once Booking is made'/>
+                          <TimelineRow 
+                            bg='bg-primary-400'
+                            icon='icon-stack-text'
+                            messageType='Welcome Message'
+                            messageContent={ house.welcome_msg }
+                            messageDescription= 'Message send to user when the booking is first made'/>
+                          <TimelineDate dateText='6:00PM, One day before checkin'/>
+                          <TimelineRow 
+                            bg='bg-teal-400' 
+                            icon='icon-airplane2'
+                            messageType='Checkin Reminder'
+                            messageContent={ house.tmr_checkin_reminder_msg }
+                            messageDescription= 'Message sent one day before checkin'/>
+                          <TimelineDate dateText='6:00PM, Same Checkin Date'/>
+                          <TimelineRow 
+                            bg='bg-info-400'
+                            icon='icon-airplane4'
+                            messageType='Arriving Message'
+                            messageContent={ house.checkin_today_msg }
+                            messageDescription= 'Message sent to make sure guest arrived safely'/>
+                          <TimelineDate dateText='12:00AM, One day before checkout'/>
+                          <TimelineRow 
+                            bg='bg-warning-400'
+                            icon='icon-airplane3'
+                            messageType='Checkout Message'
+                            messageContent={ house.checkout_reminder_msg }
+                            messageDescription= 'Message sent to remind guest on checkout time'/>
                         </div>
                       </div>
                     </div>
